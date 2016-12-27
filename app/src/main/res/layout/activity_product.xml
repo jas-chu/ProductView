@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.activities.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <RelativeLayout
+            android:id="@+id/principalLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/product"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="8dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/headphones" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:text="Auricular Bluetooth Samsung Eo-pn900"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/prize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title"
+                android:layout_centerHorizontal="true"
+                android:text="Precio: $450"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/secondLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/principalLayout">
+
+            <TextView
+                android:id="@+id/available"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disponibles: 15"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/usedOrNew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/available"
+                android:text="Nuevo"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/freeShipping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/usedOrNew"
+                android:text="Entrega Gratuita"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/freeShippingOk"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/usedOrNew"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/freeShipping"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/check_icon"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/freeShippingNo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/usedOrNew"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/freeShipping"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:src="@drawable/error_icon"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@android:color/black" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/secondLayout">
+
+            <TextView
+                android:id="@+id/brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marca: Samsung"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/brand"
+                android:text="Color: Rojo"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/color"
+                android:text="Modelo: Eo-pn900"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/warranty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/model"
+                android:text="Garantía: 3 meses"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/descriptionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/warranty"
+                android:layout_centerHorizontal="true"
+                android:text=" Descripcion "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/descriptionContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/descriptionButton"
+                android:visibility="gone"
+                android:text="Sonido de Alta Calidad\nConexión Bluetooth\nColores a elección"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@android:color/black" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
