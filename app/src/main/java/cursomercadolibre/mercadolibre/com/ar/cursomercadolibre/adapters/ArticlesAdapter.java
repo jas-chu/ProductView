@@ -11,6 +11,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.activities.ProductActivity;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
@@ -45,6 +47,11 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
                 context.startActivity(intent);
             }
         });
+        if (position % 2 == 0) {
+            holder.view.setBackgroundResource(R.color.grey);
+        } else {
+            holder.view.setBackgroundResource(R.color.white);
+        }
     }
 
     @Override
@@ -60,13 +67,15 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         View view;
+
+        @Bind(R.id.titleItem)
         TextView title;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
 
             view = itemView;
-            title = (TextView) itemView.findViewById(R.id.titleItem);
         }
     }
 }

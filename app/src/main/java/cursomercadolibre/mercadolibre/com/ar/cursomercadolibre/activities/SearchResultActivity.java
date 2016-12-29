@@ -8,12 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.adapters.ArticlesAdapter;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
 
 public class SearchResultActivity extends AppCompatActivity {
-
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private ArticlesAdapter articlesAdapter;

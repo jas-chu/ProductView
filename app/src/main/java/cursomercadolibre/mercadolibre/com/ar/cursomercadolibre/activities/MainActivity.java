@@ -7,30 +7,45 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    @Bind(R.id.mainImageView)
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
+    }
 
-        Button button = (Button) findViewById(R.id.show);
-        button.setOnClickListener( new View.OnClickListener(){
+    @OnClick(R.id.show)
+    public void clickedButton(View view){
+        Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
+        startActivity(intent);
+    };
 
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
-                startActivity(intent);
-            }
-        });
+    @Override
+    public void onResume(){
+        super.onResume();
 
+        Picasso.with(this)
+                .setIndicatorsEnabled(true); //triangulito de color. Rojo: saco de internet. Verde: cacheada en memoria. Azul: cacheada en disco.
 
+        Picasso.with(this)
+                .load("http://www.sinmordaza.com/imagesnueva/noticias/grandes/60783_empresarias.jpg")
+                .into(image);
     }
 }
