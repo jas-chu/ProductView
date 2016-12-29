@@ -18,7 +18,7 @@ ButterKnife.bind(this);  //inyecto la dependencia.
 
 Se puede hacer tambien:  
 @Bind({R.id.boton, R.id.mensaje, R.id.boton})  
-List<View> views;  
+List< View> views;  
 
 
 @OnClick(R.id.boton)  
@@ -61,3 +61,30 @@ compile 'com.squareup.picasso:picasso:2.5.2'
 
   Picasso.placeholder(R.drawable.default_image)  
   		.error(R.drawable.imagen_si_hubo_error)
+
+##GSON
+Se crea un POJO que represente el objeto JSON  
+
+@SerializaName("atributo_serializado")  
+private String miVariable
+
+### En el Build(app)
+compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+### Uso en el código:
+Gson gson = new Gson();  
+
+#### Pasar de Java a Json:
+gson.toJson(article)  
+#### Pasar de Json a Java:  
+Article newArticle = gson.fromJson(string, Article.class)  //recibe el string y la clase a la cual la tiene que parsear.   
+#### ¿Qué pasa si un objeto viene en un formato que GSON no puede deserializar? Se programa un propio deserializer:
+GsonBuilder gsonBuilder = new GsonBuilder();  
+Gson gson = gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ss-SSSZ")      
+           .registerTypeAdapter(Entidad.class, new EntidadDeserializer()).create();   
+              
+// FORMATO_FECHA: sacado de la clase SimpleDateFormat de Java
+
+
+
+
