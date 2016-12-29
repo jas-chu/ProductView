@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.adapters.ArticlesAdapter;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
 
 public class SearchResultActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
+    @Bind(R.id.articles)
+    RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private ArticlesAdapter articlesAdapter;
 
@@ -22,8 +24,9 @@ public class SearchResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
+        ButterKnife.bind(this);
 
-        this.recyclerView = (RecyclerView) findViewById(R.id.articles);
+        //this.recyclerView = (RecyclerView) findViewById(R.id.articles);
         this.layoutManager = new LinearLayoutManager(this);
 
         this.recyclerView.setLayoutManager(this.layoutManager);
