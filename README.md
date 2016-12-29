@@ -11,7 +11,7 @@ compile 'com.squareup.picasso:picasso:2.5.2'
 ### Al usarlo en el codigo
 //triangulito de color. Rojo: saco de internet. Verde: cacheada en memoria. Azul: cacheada en disco. Solo para debugging. 
  
- Picasso.with(this) 
+ Picasso.with(this)  
         .setIndicatorsEnabled(true); 
 
  Picasso.with(this)  
