@@ -42,9 +42,10 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
 
         holder.title.setText(article.getTitle());
         holder.priceItem.setText(article.getPrice());
-//        Picasso.with(this)
-//                .load(article.getThumbnail())
-//                .into(holder.productItem);
+
+        Picasso.with(holder.view.getContext())
+                .load(article.getThumbnail())
+                .into(holder.productItem);
 
         holder.view.setOnClickListener(new View.OnClickListener(){
 
