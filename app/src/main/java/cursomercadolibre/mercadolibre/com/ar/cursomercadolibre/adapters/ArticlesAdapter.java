@@ -6,7 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +41,11 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         Article article = this.items.get(position);
 
         holder.title.setText(article.getTitle());
+        holder.priceItem.setText(article.getPrice());
+//        Picasso.with(this)
+//                .load(article.getThumbnail())
+//                .into(holder.productItem);
+
         holder.view.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -70,6 +78,10 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
 
         @Bind(R.id.titleItem)
         TextView title;
+        @Bind(R.id.priceItem)
+        TextView priceItem;
+        @Bind(R.id.productItem)
+        ImageView productItem;
 
         public ViewHolder(View itemView) {
             super(itemView);

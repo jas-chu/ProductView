@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,6 @@ public class SearchResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_result);
         ButterKnife.bind(this);
 
-        //this.recyclerView = (RecyclerView) findViewById(R.id.articles);
         this.layoutManager = new LinearLayoutManager(this);
 
         this.recyclerView.setLayoutManager(this.layoutManager);
@@ -36,9 +36,15 @@ public class SearchResultActivity extends AppCompatActivity {
 
         List<Article> articles = new ArrayList<Article>();
         for (int i = 0; i < 500; i++){
-            Article article = new Article();
-            article.setTitle("Articulo " + i);
-            articles.add(article);
+            Bundle extras = getIntent().getExtras();
+            if(extras != null) {
+                Article article = new Article();
+                article.setTitle(extras.getString("TITLE"));
+                article.setPrice(extras.getString("PRICE"));
+                article.setThumbnail(extras.getString("PICTURE"));
+                articles.add(article);
+            }
+
         }
         this.articlesAdapter.setItems(articles);
     }

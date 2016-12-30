@@ -31,7 +31,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/prizeItem"
+            android:id="@+id/priceItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleItem"
