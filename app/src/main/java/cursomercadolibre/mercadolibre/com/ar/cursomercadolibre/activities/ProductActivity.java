@@ -1,5 +1,6 @@
 package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.activities;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,6 +40,10 @@ public class ProductActivity extends AppCompatActivity {
     TextView warranty;
     @Bind(R.id.available)
     TextView available;
+    @Bind(R.id.freeShippingOk)
+    ImageView freeShippingOk;
+    @Bind(R.id.freeShippingNo)
+    ImageView freeShippingNo;
 
     private String imageURL = "http://www.sinmordaza.com/imagesnueva/noticias/grandes/60783_empresarias.jpg";
 
@@ -60,6 +65,7 @@ public class ProductActivity extends AppCompatActivity {
             usedOrNew.setText(extras.getString("CONDITION"));
             warranty.setText(("Garantía: " + extras.getString("WARRANTY")));
             available.setText(("Disponible: " + extras.getString("AVAILABLE_QUANTITY")));
+           
         }
     }
 

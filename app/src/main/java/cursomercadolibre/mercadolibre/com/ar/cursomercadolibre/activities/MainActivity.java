@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Article> call, Response<Article> response) {
                 if(response.isSuccessful()) {
                     Article received = response.body();
-                    Intent intent = new Intent(MainActivity.this, SearchResultActivity.class); //TODO: searchResultActivity.
+                    Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
                     intent.putExtra("PICTURE", received.getThumbnail());
                     intent.putExtra("TITLE", received.getTitle());
                     intent.putExtra("PRICE", received.getPrice());

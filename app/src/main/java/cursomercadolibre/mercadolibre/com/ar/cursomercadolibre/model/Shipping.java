@@ -7,7 +7,12 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Shipping {
+    @SerializedName("free_shipping")
     private boolean freeShipping;
+
+    public Shipping(boolean freeShipping){
+        this.freeShipping = freeShipping;
+    }
 
     public boolean isFreeShipping() {
         return freeShipping;

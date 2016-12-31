@@ -38,7 +38,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        Article article = this.items.get(position);
+        final Article article = this.items.get(position);
 
         holder.title.setText(article.getTitle());
         holder.priceItem.setText(article.getPrice());
@@ -53,6 +53,13 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             public void onClick(View v) {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, ProductActivity.class);
+                intent.putExtra("PICTURE", article.getThumbnail());
+                intent.putExtra("TITLE", article.getTitle());
+                intent.putExtra("PRICE", article.getPrice());
+                intent.putExtra("CONDITION", article.getCondition());
+                intent.putExtra("WARRANTY", article.getWarranty());
+                intent.putExtra("AVAILABLE_QUANTITY", article.getAvailableQuantity());
+                intent.putExtra("SHIPPING", article.getShipping().isFreeShipping());
                 context.startActivity(intent);
             }
         });
