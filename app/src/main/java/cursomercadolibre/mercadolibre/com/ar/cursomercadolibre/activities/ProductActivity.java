@@ -65,7 +65,14 @@ public class ProductActivity extends AppCompatActivity {
             usedOrNew.setText(extras.getString("CONDITION"));
             warranty.setText(("Garantía: " + extras.getString("WARRANTY")));
             available.setText(("Disponible: " + extras.getString("AVAILABLE_QUANTITY")));
-           
+            boolean freeShipping = extras.getBoolean("SHIPPING");
+            if (freeShipping) {
+                freeShippingOk.setVisibility(View.VISIBLE);
+                freeShippingNo.setVisibility(View.GONE);
+            } else {
+                freeShippingOk.setVisibility(View.GONE);
+                freeShippingNo.setVisibility(View.VISIBLE);
+            }
         }
     }
 
