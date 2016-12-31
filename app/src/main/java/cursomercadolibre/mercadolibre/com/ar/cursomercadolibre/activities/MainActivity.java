@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import java.io.Serializable;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.mainImageView)
     ImageView image;
+    @Bind(R.id.editText)
+    TextView query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.show)
     public void clickedButton(View view) {
+        // "/sites/MLA/searchUrl?q=" + query.getText();
+
         API.getArticle("MLA644287324", new Callback<Article>() {
             @Override
             public void onResponse(Call<Article> call, Response<Article> response) {
@@ -49,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("WARRANTY", received.getWarranty());
                     intent.putExtra("AVAILABLE_QUANTITY", received.getAvailableQuantity());
                     intent.putExtra("SHIPPING", received.getShipping().isFreeShipping());
+                    intent.putExtra("ATTRIBUTES", (Serializable) received.getAttributes());
                     startActivity(intent);
                 }
             }

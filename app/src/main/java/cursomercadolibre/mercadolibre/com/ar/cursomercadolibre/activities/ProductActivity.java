@@ -10,12 +10,17 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.xml.sax.helpers.AttributesImpl;
+
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.api.API;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
+import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Attribute;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,6 +49,12 @@ public class ProductActivity extends AppCompatActivity {
     ImageView freeShippingOk;
     @Bind(R.id.freeShippingNo)
     ImageView freeShippingNo;
+    @Bind(R.id.attribute1)
+    TextView attribute1;
+    @Bind(R.id.attribute2)
+    TextView attribute2;
+    @Bind(R.id.attribute3)
+    TextView attribute3;
 
     private String imageURL = "http://www.sinmordaza.com/imagesnueva/noticias/grandes/60783_empresarias.jpg";
 
@@ -73,6 +84,11 @@ public class ProductActivity extends AppCompatActivity {
                 freeShippingOk.setVisibility(View.GONE);
                 freeShippingNo.setVisibility(View.VISIBLE);
             }
+            List<Attribute> attributes = (List<Attribute>) extras.getSerializable("ATTRIBUTES");
+            attribute1.setText((attributes.get(0).getName() + ": " + attributes.get(0).getValueName()));
+            attribute2.setText((attributes.get(1).getName() + ": " + attributes.get(1).getValueName()));
+            attribute3.setText((attributes.get(2).getName() + ": " + attributes.get(2).getValueName()));
+
         }
     }
 

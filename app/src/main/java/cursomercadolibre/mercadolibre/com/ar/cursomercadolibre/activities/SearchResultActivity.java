@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ImageView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +12,7 @@ import butterknife.ButterKnife;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.adapters.ArticlesAdapter;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
+import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Attribute;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Shipping;
 
 public class SearchResultActivity extends AppCompatActivity {
@@ -47,6 +46,7 @@ public class SearchResultActivity extends AppCompatActivity {
                 article.setWarranty(extras.getString("WARRANTY"));
                 article.setAvailableQuantity(extras.getString("AVAILABLE_QUANTITY"));
                 article.setShipping(new Shipping(extras.getBoolean("SHIPPING")));
+                article.setAttributes((List<Attribute>) extras.getSerializable("ATTRIBUTES"));
                 articles.add(article);
             }
 

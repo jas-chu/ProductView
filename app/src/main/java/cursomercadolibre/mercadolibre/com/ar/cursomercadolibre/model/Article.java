@@ -14,7 +14,7 @@ public class Article {
     private String condition; // new/used
     private String warranty;
     private List<Picture> pictures;
-    private List<Attributes> attributes;
+    private List<Attribute> attributes;
     private String thumbnail;
     private Shipping shipping;
 
@@ -80,11 +80,11 @@ public class Article {
         this.pictures = pictures;
     }
 
-    public List<Attributes> getAttributes() {
+    public List<Attribute> getAttributes() {
         return attributes;
     }
 
-    public void setAttributes(List<Attributes> attributes) {
+    public void setAttributes(List<Attribute> attributes) {
         this.attributes = attributes;
     }
 

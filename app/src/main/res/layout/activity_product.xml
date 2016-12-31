@@ -116,25 +116,25 @@
             android:layout_below="@id/secondLayout">
 
             <TextView
-                android:id="@+id/brand"
+                android:id="@+id/attribute1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Marca: Samsung"
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/color"
+                android:id="@+id/attribute2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/brand"
+                android:layout_below="@id/attribute1"
                 android:text="Color: Rojo"
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/model"
+                android:id="@+id/attribute3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/color"
+                android:layout_below="@id/attribute2"
                 android:text="Modelo: Eo-pn900"
                 android:textSize="20dp" />
 
@@ -142,7 +142,7 @@
                 android:id="@+id/warranty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/model"
+                android:layout_below="@id/attribute3"
                 android:text="Garantía: 3 meses"
                 android:textSize="20dp" />
 

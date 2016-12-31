@@ -2,11 +2,13 @@ package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by jsella on 12/30/16.
  */
 
-public class Attributes {
+public class Attribute implements Serializable {
     private String name;
 
     @SerializedName("value_name")

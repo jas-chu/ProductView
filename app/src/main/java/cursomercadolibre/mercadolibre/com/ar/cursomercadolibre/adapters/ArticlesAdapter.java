@@ -2,6 +2,7 @@ package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +62,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
                 intent.putExtra("WARRANTY", article.getWarranty());
                 intent.putExtra("AVAILABLE_QUANTITY", article.getAvailableQuantity());
                 intent.putExtra("SHIPPING", article.getShipping().isFreeShipping());
+                intent.putExtra("ATTRIBUTES", (Serializable) article.getAttributes());
                 context.startActivity(intent);
             }
         });
