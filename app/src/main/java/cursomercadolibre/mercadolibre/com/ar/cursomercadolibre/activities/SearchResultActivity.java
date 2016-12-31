@@ -35,21 +35,22 @@ public class SearchResultActivity extends AppCompatActivity {
         this.recyclerView.setAdapter(this.articlesAdapter);
 
         List<Article> articles = new ArrayList<Article>();
-        for (int i = 0; i < 500; i++){
-            Bundle extras = getIntent().getExtras();
-            if(extras != null) {
+//        for (int i = 0; i < 500; i++){
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            articles = (List<Article>) extras.getSerializable("RESULTS");
+            for (int i = 0; i < 10 /*articles.size()*/; i++) {
                 Article article = new Article();
-                article.setThumbnail(extras.getString("PICTURE"));
-                article.setTitle(extras.getString("TITLE"));
-                article.setPrice(extras.getString("PRICE"));
-                article.setCondition(extras.getString("CONDITION"));
-                article.setWarranty(extras.getString("WARRANTY"));
-                article.setAvailableQuantity(extras.getString("AVAILABLE_QUANTITY"));
-                article.setShipping(new Shipping(extras.getBoolean("SHIPPING")));
-                article.setAttributes((List<Attribute>) extras.getSerializable("ATTRIBUTES"));
+                article.setThumbnail(articles.get(0).getThumbnail());
+                article.setTitle(articles.get(0).getTitle());
+                article.setPrice(articles.get(0).getPrice());
+                article.setCondition(articles.get(0).getCondition());
+                article.setWarranty(articles.get(0).getWarranty());
+                article.setAvailableQuantity(articles.get(0).getAvailableQuantity());
+                article.setShipping(articles.get(0).getShipping());
+                article.setAttributes(articles.get(0).getAttributes());
                 articles.add(article);
             }
-
         }
         this.articlesAdapter.setItems(articles);
     }

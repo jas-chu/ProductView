@@ -3,6 +3,7 @@ package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.api;
 import com.google.gson.Gson;
 
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
+import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.SearchResult;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -27,5 +28,9 @@ public class API {
 
     public static void getArticle(String id, Callback<Article> callback) {
         getAPI().getArticle(id).enqueue(callback);
+    }
+
+    public static void search(String query, Callback<SearchResult> callback) {
+        getAPI().search(query).enqueue(callback);
     }
 }

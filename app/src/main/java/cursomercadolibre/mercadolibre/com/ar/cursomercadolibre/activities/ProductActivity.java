@@ -85,9 +85,12 @@ public class ProductActivity extends AppCompatActivity {
                 freeShippingNo.setVisibility(View.VISIBLE);
             }
             List<Attribute> attributes = (List<Attribute>) extras.getSerializable("ATTRIBUTES");
-            attribute1.setText((attributes.get(0).getName() + ": " + attributes.get(0).getValueName()));
-            attribute2.setText((attributes.get(1).getName() + ": " + attributes.get(1).getValueName()));
-            attribute3.setText((attributes.get(2).getName() + ": " + attributes.get(2).getValueName()));
+            if (attributes != null && attributes.size() > 0 ) {
+                Log.i(TAG, String.valueOf(attributes.size()));
+                attribute1.setText((attributes.get(0).getName() + ": " + attributes.get(0).getValueName()));
+                attribute2.setText((attributes.get(1).getName() + ": " + attributes.get(1).getValueName()));
+                attribute3.setText((attributes.get(2).getName() + ": " + attributes.get(2).getValueName()));
+            }
 
         }
     }

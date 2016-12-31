@@ -43,7 +43,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         final Article article = this.items.get(position);
 
         holder.title.setText(article.getTitle());
-        holder.priceItem.setText(article.getPrice());
+        holder.priceItem.setText(("Precio: $" + article.getPrice()));
 
         Picasso.with(holder.view.getContext())
                 .load(article.getThumbnail())

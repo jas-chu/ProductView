@@ -2,13 +2,14 @@ package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by jsella on 12/27/16.
  */
 
-public class Article {
+public class Article implements Serializable{
     private String title;
     private String price;
     private String condition; // new/used

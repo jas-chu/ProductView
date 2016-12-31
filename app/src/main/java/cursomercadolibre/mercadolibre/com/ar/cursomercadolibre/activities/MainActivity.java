@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -18,6 +19,7 @@ import butterknife.OnClick;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.api.API;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
+import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.SearchResult;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,31 +43,48 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.show)
     public void clickedButton(View view) {
-        // "/sites/MLA/searchUrl?q=" + query.getText();
-
-        API.getArticle("MLA644287324", new Callback<Article>() {
+        API.search(query.getText().toString(), new Callback<SearchResult>() {
             @Override
-            public void onResponse(Call<Article> call, Response<Article> response) {
+            public void onResponse(Call<SearchResult> call, Response<SearchResult> response) {
                 if(response.isSuccessful()) {
-                    Article received = response.body();
+                    SearchResult searchResult = response.body();
+                    Log.i(TAG, searchResult.getResults().get(0).getTitle());
                     Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
-                    intent.putExtra("PICTURE", received.getThumbnail());
-                    intent.putExtra("TITLE", received.getTitle());
-                    intent.putExtra("PRICE", received.getPrice());
-                    intent.putExtra("CONDITION", received.getCondition());
-                    intent.putExtra("WARRANTY", received.getWarranty());
-                    intent.putExtra("AVAILABLE_QUANTITY", received.getAvailableQuantity());
-                    intent.putExtra("SHIPPING", received.getShipping().isFreeShipping());
-                    intent.putExtra("ATTRIBUTES", (Serializable) received.getAttributes());
+                    intent.putExtra("RESULTS", (Serializable) searchResult.getResults());
                     startActivity(intent);
                 }
             }
             @Override
-            public void onFailure(Call<Article> call, Throwable t) {
+            public void onFailure(Call<SearchResult> call, Throwable t) {
                 Log.i(TAG, "onFailure");
                 t.printStackTrace();
             }
         });
+
+
+//        API.getArticle("MLA644287324", new Callback<Article>() {
+//            @Override
+//            public void onResponse(Call<Article> call, Response<Article> response) {
+//                if(response.isSuccessful()) {
+//                    Article received = response.body();
+//                    Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
+//                    intent.putExtra("PICTURE", received.getThumbnail());
+//                    intent.putExtra("TITLE", received.getTitle());
+//                    intent.putExtra("PRICE", received.getPrice());
+//                    intent.putExtra("CONDITION", received.getCondition());
+//                    intent.putExtra("WARRANTY", received.getWarranty());
+//                    intent.putExtra("AVAILABLE_QUANTITY", received.getAvailableQuantity());
+//                    intent.putExtra("SHIPPING", received.getShipping().isFreeShipping());
+//                    intent.putExtra("ATTRIBUTES", (Serializable) received.getAttributes());
+//                    startActivity(intent);
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<Article> call, Throwable t) {
+//                Log.i(TAG, "onFailure");
+//                t.printStackTrace();
+//            }
+//        });
     }
 
     @Override
