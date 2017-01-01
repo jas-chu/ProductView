@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,9 @@ import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Attribute;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Shipping;
 
 public class SearchResultActivity extends AppCompatActivity {
+
+    private static final String TAG = SearchResultActivity.class.getSimpleName();
+
     @Bind(R.id.articles)
     RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
@@ -41,14 +46,14 @@ public class SearchResultActivity extends AppCompatActivity {
             articles = (List<Article>) extras.getSerializable("RESULTS");
             for (int i = 0; i < 10 /*articles.size()*/; i++) {
                 Article article = new Article();
-                article.setThumbnail(articles.get(0).getThumbnail());
-                article.setTitle(articles.get(0).getTitle());
-                article.setPrice(articles.get(0).getPrice());
-                article.setCondition(articles.get(0).getCondition());
-                article.setWarranty(articles.get(0).getWarranty());
-                article.setAvailableQuantity(articles.get(0).getAvailableQuantity());
-                article.setShipping(articles.get(0).getShipping());
-                article.setAttributes(articles.get(0).getAttributes());
+                article.setThumbnail(articles.get(i).getThumbnail());
+                article.setTitle(articles.get(i).getTitle());
+                article.setPrice(articles.get(i).getPrice());
+                article.setCondition(articles.get(i).getCondition());
+                article.setWarranty(articles.get(i).getWarranty());
+                article.setAvailableQuantity(articles.get(i).getAvailableQuantity());
+                article.setShipping(articles.get(i).getShipping());
+                article.setAttributes(articles.get(i).getAttributes());
                 articles.add(article);
             }
         }

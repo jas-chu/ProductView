@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<SearchResult> call, Response<SearchResult> response) {
                 if(response.isSuccessful()) {
                     SearchResult searchResult = response.body();
-                    Log.i(TAG, searchResult.getResults().get(0).getTitle());
+                    // TODO: No vienen los Attributes. Solo en el getArticle.
                     Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
                     intent.putExtra("RESULTS", (Serializable) searchResult.getResults());
                     startActivity(intent);
