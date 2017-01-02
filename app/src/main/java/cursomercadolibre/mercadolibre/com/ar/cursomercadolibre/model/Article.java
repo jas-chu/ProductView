@@ -1,6 +1,8 @@
 package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.orm.SugarRecord;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,19 +11,35 @@ import java.util.List;
  * Created by jsella on 12/27/16.
  */
 
-public class Article implements Serializable{
-    private String title;
-    private String price;
-    private String condition; // new/used
-    private String warranty;
-    private List<Picture> pictures;
-    private List<Attribute> attributes;
-    private String thumbnail;
-    private Shipping shipping;
+public class Article extends SugarRecord implements Serializable  {
 
+    @Expose
+    private String title;
+    @Expose
+    private String price;
+    @Expose
+    private String condition; // new/used
+    @Expose
+    private String warranty;
+    @Expose
+    private List<Picture> pictures;
+    @Expose
+    private List<Attribute> attributes;
+    @Expose
+    private String thumbnail;
+    @Expose
+    private Shipping shipping;
+    @Expose
     @SerializedName("available_quantity")
     private String availableQuantity;
 
+    @Expose
+    @SerializedName("id")
+    private String serverid;
+
+    private String busqueda;
+
+    @Expose
     @SerializedName("sold_quantity")
     private Long soldQuantity = 4l;
 
@@ -103,5 +121,21 @@ public class Article implements Serializable{
 
     public void setShipping(Shipping shipping) {
         this.shipping = shipping;
+    }
+
+    public String getBusqueda() {
+        return busqueda;
+    }
+
+    public void setBusqueda(String busqueda) {
+        this.busqueda = busqueda;
+    }
+
+    public String getServerid() {
+        return serverid;
+    }
+
+    public void setServerid(String serverid) {
+        this.serverid = serverid;
     }
 }

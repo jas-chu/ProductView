@@ -1,5 +1,6 @@
 package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -9,8 +10,9 @@ import java.io.Serializable;
  */
 
 public class Attribute implements Serializable {
+    @Expose
     private String name;
-
+    @Expose
     @SerializedName("value_name")
     private String valueName;
 
