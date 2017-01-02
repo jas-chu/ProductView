@@ -27,6 +27,9 @@
         <meta-data android:name="DATABASE" android:value="sugar_example.db" />
         <meta-data android:name="VERSION" android:value="3" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="d71dc4ad6269e6660239434ac394e559b3776480" />
     </application>
 
 </manifest>

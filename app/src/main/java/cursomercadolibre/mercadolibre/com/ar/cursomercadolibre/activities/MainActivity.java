@@ -10,14 +10,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.core.CrashlyticsCore;
 import com.squareup.picasso.Picasso;
 
+import io.fabric.sdk.android.Fabric;
 import java.io.Serializable;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.BuildConfig;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.api.API;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
@@ -40,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Fabric.with(this, new Crashlytics.Builder()
+                            .core(new CrashlyticsCore.Builder()
+                            .disabled(BuildConfig.DEBUG)
+                            .build())
+                .build());
 
     }
 
