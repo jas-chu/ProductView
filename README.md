@@ -62,7 +62,7 @@ compile 'com.squareup.picasso:picasso:2.5.2'
   Picasso.placeholder(R.drawable.default_image)  
   		.error(R.drawable.imagen_si_hubo_error)
 
-##GSON
+## GSON
 Se crea un POJO que represente el objeto JSON  
 
 @SerializaName("atributo_serializado")  
@@ -84,7 +84,11 @@ Gson gson = gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ss-SSSZ")
            .registerTypeAdapter(Entidad.class, new EntidadDeserializer()).create();   
               
 // FORMATO_FECHA: sacado de la clase SimpleDateFormat de Java
+  
+     
+## Otros Links:   
 
-
-
-
+http://satyan.github.io/sugar/getting-started.html   
+   
+   
+https://fabric.io/downloads/android-studio   
