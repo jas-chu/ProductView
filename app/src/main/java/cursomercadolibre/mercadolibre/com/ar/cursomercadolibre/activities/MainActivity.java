@@ -1,6 +1,8 @@
 package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,23 +45,54 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.show)
     public void clickedButton(View view) {
-        API.search(query.getText().toString(), new Callback<SearchResult>() {
-            @Override
-            public void onResponse(Call<SearchResult> call, Response<SearchResult> response) {
-                if(response.isSuccessful()) {
-                    SearchResult searchResult = response.body();
-                    // TODO: No vienen los Attributes. Solo en el getArticle.
-                    Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
-                    intent.putExtra("RESULTS", (Serializable) searchResult.getResults());
-                    startActivity(intent);
+
+        final String busqueda = query.getText().toString();
+
+        SharedPreferences preferences = getSharedPreferences("generales", Context.MODE_PRIVATE);
+        boolean seBusco = preferences.getBoolean(busqueda, false);
+
+        if(!seBusco) {
+
+            API.search(busqueda, new Callback<SearchResult>() {
+                @Override
+                public void onResponse(Call<SearchResult> call, Response<SearchResult> response) {
+                    if(response.isSuccessful()) {
+
+                        SearchResult searchResult = response.body();
+                        // TODO: No vienen los Attributes. Solo en el getArticle.
+                        Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
+                        intent.putExtra("RESULTS", (Serializable) searchResult.getResults());
+                        startActivity(intent);
+
+                        SharedPreferences.Editor editor = getSharedPreferences("generales", Context.MODE_PRIVATE).edit();
+                        editor.putBoolean(busqueda, true);
+                        editor.commit();
+
+                        for(Article article : searchResult.getResults()) {
+                            article.setBusqueda(busqueda);
+                            article.save();
+                        }
+
+                    }
                 }
-            }
-            @Override
-            public void onFailure(Call<SearchResult> call, Throwable t) {
-                Log.i(TAG, "onFailure");
-                t.printStackTrace();
-            }
-        });
+                @Override
+                public void onFailure(Call<SearchResult> call, Throwable t) {
+                    Log.i(TAG, "onFailure");
+                    t.printStackTrace();
+                }
+            });
+
+        } else {
+            Log.i(TAG, preferences.getString("generales",""));
+
+            List<Article> buscados = Article.find(Article.class, "busqueda = ?", busqueda);
+            Intent intent = new Intent(MainActivity.this, SearchResultActivity.class);
+            intent.putExtra("RESULTS", (Serializable) buscados);
+            startActivity(intent);
+
+        }
+
+
 
 
 //        API.getArticle("MLA644287324", new Callback<Article>() {

@@ -1,5 +1,7 @@
 package cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.R;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.api.API;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Article;
 import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.Attribute;
+import cursomercadolibre.mercadolibre.com.ar.cursomercadolibre.model.SearchResult;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -64,7 +67,6 @@ public class ProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product);
         ButterKnife.bind(this);
         loadData();
-
     }
 
     public void loadData(){
@@ -113,5 +115,6 @@ public class ProductActivity extends AppCompatActivity {
             viewDescription.setVisibility(View.VISIBLE);
         }
     }
+
 
 }
