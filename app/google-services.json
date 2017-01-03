@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "180479720196",
+    "firebase_url": "https://cursomercadolibre-98867.firebaseio.com",
+    "project_id": "cursomercadolibre-98867",
+    "storage_bucket": "cursomercadolibre-98867.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180479720196:android:7eafb90530edf84f",
+        "android_client_info": {
+          "package_name": "cursomercadolibre.mercadolibre.com.ar.cursomercadolibre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180479720196-pps1dlv24emsjq0d4rrg28nfgdl92k16.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cursomercadolibre.mercadolibre.com.ar.cursomercadolibre",
+            "certificate_hash": "B9648DC701E0AC68BDEEF0F3580C28887BE56676"
+          }
+        },
+        {
+          "client_id": "180479720196-ajskg8fg1mfj86r3esebo9ecvik3v7vs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1w_ckdj60keJ9x4wtSnMWvPSCJduc7Do"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180479720196-ajskg8fg1mfj86r3esebo9ecvik3v7vs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
