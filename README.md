@@ -87,8 +87,8 @@ Gson gson = gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ss-SSSZ")
   
      
 ## Otros Links:   
-
+Se usa Sugar para persistencia:
 http://satyan.github.io/sugar/getting-started.html   
    
-   
+Se usa fabric para realizar push notifications:   
 https://fabric.io/downloads/android-studio   
