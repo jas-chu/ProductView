@@ -87,7 +87,7 @@ Gson gson = gsonBuilder.setDateFormat("yyyy-MM-dd'T'HH:mm:ss-SSSZ")
   
      
 ## Otros Links:   
-Se usa Sugar para persistencia de las búsquedas realizadas:  
+Se usa Sugar para persistencia de las búsquedas realizadas:   
 http://satyan.github.io/sugar/getting-started.html   
    
 Se usa fabric para realizar push notifications:   
